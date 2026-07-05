@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Cybersecurity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1e2a41;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ============================================
+           PRELOADER - LIGHT CYBER (BLUE + GOLD)
+           ============================================ */
+        .preloader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-container {
+            text-align: center;
+            position: relative;
+        }
+
+        /* ===== ANIMATED SHIELD ===== */
+        .shield-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+        }
+
+        .shield-container .shield-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #2563eb;
+            border-right-color: #d4a843;
+            animation: spinRing 2s linear infinite;
+        }
+
+        .shield-container .shield-ring:nth-child(1) {
+            border-width: 3px;
+            animation-duration: 2s;
+        }
+
+        .shield-container .shield-ring:nth-child(2) {
+            width: 85%;
+            height: 85%;
+            top: 7.5%;
+            left: 7.5%;
+            border-width: 2px;
+            border-top-color: #d4a843;
+            border-right-color: #2563eb;
+            animation-duration: 1.5s;
+            animation-direction: reverse;
+        }
+
+        .shield-container .shield-ring:nth-child(3) {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            border-width: 2px;
+            border-top-color: #60a5fa;
+            border-right-color: #f0dca0;
+            animation-duration: 1s;
+        }
+
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .shield-container .shield-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color: #2563eb;
+            animation: shieldPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes shieldPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* ===== LOADING TEXT ===== */
+        .loading-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e2a41;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .loading-text span {
+            color: #d4a843;
+        }
+
+        /* ===== DOTS ANIMATION ===== */
+        .dots {
+            display: inline-flex;
+            gap: 8px;
+            margin-left: 4px;
+        }
+
+        .dots span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #d4a843;
+            border-radius: 50%;
+            animation: dotBounce 1.4s ease-in-out infinite;
+        }
+
+        .dots span:nth-child(1) { animation-delay: 0s; }
+        .dots span:nth-child(2) { animation-delay: 0.2s; }
+        .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dotBounce {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+            40% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar-wrapper {
+            width: 280px;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            margin: 0 auto 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-wrapper .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #2563eb, #d4a843, #2563eb);
+            background-size: 200% 100%;
+            border-radius: 10px;
+            animation: progressGradient 1.5s linear infinite, progressLoad 2.5s ease-in-out forwards;
+        }
+
+        @keyframes progressGradient {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        @keyframes progressLoad {
+            0% { width: 0%; }
+            25% { width: 20%; }
+            50% { width: 45%; }
+            75% { width: 75%; }
+            90% { width: 90%; }
+            100% { width: 100%; }
+        }
+
+        /* ===== PERCENTAGE ===== */
+        .percentage {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #4b5a73;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .percentage span {
+            color: #2563eb;
+        }
+
+        /* ===== FLOATING PARTICLES ===== */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(37, 99, 235, 0.10);
+            border-radius: 50%;
+            animation: floatParticle 12s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 14s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 12s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 16s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 13s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 15s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 11s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 17s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 14s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 12s; }
+        .particle:nth-child(10) { left: 15%; animation-delay: 3.5s; animation-duration: 18s; }
+        .particle:nth-child(11) { left: 45%; animation-delay: 0.5s; animation-duration: 13s; }
+        .particle:nth-child(12) { left: 75%; animation-delay: 4s; animation-duration: 16s; }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            25% { transform: translateY(-80px) scale(1.5); opacity: 0.6; }
+            50% { transform: translateY(-160px) scale(0.5); opacity: 0.2; }
+            75% { transform: translateY(-240px) scale(1.2); opacity: 0.8; }
+        }
+
+        /* ===== SHIELD GLOW ===== */
+        .shield-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.06), transparent 70%);
+            animation: glowPulse 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .shield-container {
+                width: 90px;
+                height: 90px;
+            }
+
+            .shield-container .shield-icon {
+                font-size: 38px;
+            }
+
+            .loading-text {
+                font-size: 1rem;
+            }
+
+            .progress-bar-wrapper {
+                width: 220px;
+            }
+
+            .particle {
+                width: 4px;
+                height: 4px;
+            }
+
+            .shield-glow {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .shield-container {
+                width: 70px;
+                height: 70px;
+            }
+
+            .shield-container .shield-icon {
+                font-size: 30px;
+            }
+
+            .loading-text {
+                font-size: 0.85rem;
+            }
+
+            .progress-bar-wrapper {
+                width: 180px;
+            }
+
+            .dots span {
+                width: 6px;
+                height: 6px;
+            }
+
+            .shield-glow {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== PRELOADER ===== -->
+    <div class="preloader-wrapper" id="preloader">
+        <!-- Floating Particles -->
+        <div class="particles">
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+        </div>
+
+        <div class="preloader-container">
+            <!-- Shield Glow -->
+            <div class="shield-glow"></div>
+
+            <!-- Animated Shield -->
+            <div class="shield-container">
+                <div class="shield-ring"></div>
+                <div class="shield-ring"></div>
+                <div class="shield-ring"></div>
+                <div class="shield-icon">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+            </div>
+
+            <!-- Loading Text -->
+            <div class="loading-text">
+                Securing your connection<span class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar-wrapper">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- Percentage -->
+            <div class="percentage" id="percentageDisplay">
+                Loading <span id="percentNum">0</span>%
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPT ===== -->
+    <script>
+        (function() {
+            console.log('%c🛡️ Stackly Cybersecurity | Preloader', 'color: #2563eb; font-size: 16px; font-weight: bold;');
+
+            // ===== Simulate Loading Progress (Faster) =====
+            let progress = 0;
+            const progressFill = document.getElementById('progressFill');
+            const percentNum = document.getElementById('percentNum');
+
+            function updateProgress() {
+                if (progress < 100) {
+                    // Faster increment: 5-15% per step
+                    const increment = Math.floor(Math.random() * 10) + 5;
+                    progress = Math.min(progress + increment, 100);
+                    
+                    // Update progress bar
+                    progressFill.style.width = progress + '%';
+                    
+                    // Update percentage display
+                    percentNum.textContent = progress;
+                    
+                    // Continue until 100% with shorter delay
+                    setTimeout(updateProgress, 150 + Math.random() * 150);
+                } else {
+                    // When 100%, redirect to home.html
+                    setTimeout(redirectToHome, 400);
+                }
+            }
+
+            function redirectToHome() {
+                console.log('%c✅ Preloader complete! Redirecting to home.html', 'color: #10b981; font-size: 12px; font-weight: bold;');
+                
+                // Add hidden class for smooth fade out
+                const preloader = document.getElementById('preloader');
+                preloader.classList.add('hidden');
+                
+                // Redirect after fade animation
+                setTimeout(function() {
+                    window.location.href = 'home.html';
+                }, 600);
+            }
+
+            // ===== Start the loading animation with minimal delay =====
+            setTimeout(updateProgress, 200);
+
+            // ===== Emergency fallback - redirect after 4 seconds (reduced from 10s) =====
+            setTimeout(function() {
+                const preloader = document.getElementById('preloader');
+                if (!preloader.classList.contains('hidden')) {
+                    console.log('%c⚠️ Emergency fallback triggered - redirecting to home.html', 'color: #f59e0b; font-size: 11px;');
+                    preloader.classList.add('hidden');
+                    setTimeout(function() {
+                        window.location.href = 'home.html';
+                    }, 600);
+                }
+            }, 4000);
+
+            // ===== Keyboard shortcut: Press 'E' to skip preloader =====
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'e' || e.key === 'E') {
+                    const preloader = document.getElementById('preloader');
+                    if (!preloader.classList.contains('hidden')) {
+                        console.log('%c⌨️ Preloader skipped via keyboard - redirecting to home.html', 'color: #8b5cf6; font-size: 11px;');
+                        preloader.classList.add('hidden');
+                        setTimeout(function() {
+                            window.location.href = 'home.html';
+                        }, 600);
+                    }
+                }
+            });
+
+            // ===== Font Awesome CDN Check =====
+            console.log('%c🔗 Loading Font Awesome...', 'color: #2563eb; font-size: 11px;');
+            
+            // Check if Font Awesome loaded
+            const checkFontAwesome = setInterval(function() {
+                if (document.querySelector('.fas.fa-shield-halved')) {
+                    console.log('%c✅ Font Awesome loaded successfully', 'color: #10b981; font-size: 11px;');
+                    clearInterval(checkFontAwesome);
+                }
+            }, 500);
+
+            // If Font Awesome not loaded after 2 seconds, dynamically load it
+            setTimeout(function() {
+                if (!document.querySelector('.fas.fa-shield-halved')) {
+                    console.log('%c🔄 Font Awesome not found, loading CDN...', 'color: #f59e0b; font-size: 11px;');
+                    const link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+                    document.head.appendChild(link);
+                }
+            }, 2000);
+        })();
+    </script>
+
+</body>
+</html>

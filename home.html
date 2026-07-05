@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Stackly Cybersecurity - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1e2a41;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        #header-placeholder {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        a, .btn-primary, .btn-secondary, .btn-sm, .btn-outline, .btn-cta,
+        .nav-btn, .mobile-nav-btn, .back-home-btn, .logout-btn {
+            text-decoration: none !important;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4a843, #c49a3d);
+            color: white !important;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 8px 25px rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 168, 67, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white !important;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-secondary:hover {
+            border-color: #d4a843;
+            background: rgba(212, 168, 67, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 28px;
+            background: transparent;
+            color: #2563eb !important;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 2px solid #2563eb;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-sm {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #f0f4f8;
+            color: #2563eb !important;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 1px solid transparent;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-sm:hover {
+            background: #2563eb;
+            color: white !important;
+            border-color: #2563eb;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header .section-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.06);
+            color: #2563eb;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1e2a41;
+        }
+
+        .section-header h2 span {
+            color: #d4a843;
+        }
+
+        .section-header p {
+            color: #4b5a73;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 8px auto 0;
+        }
+
+        /* ==========================================
+           SECTION 1: HERO WITH VIDEO BG
+           ========================================== */
+        .hero-video {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 100px;
+            border-bottom: 3px solid #d4a843;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video #heroBgVideo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-video .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 42, 65, 0.80));
+            z-index: 1;
+        }
+
+        .hero-video .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-video .hero-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #93c5fd;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero-video h1 {
+            font-size: 4.2rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-video h1 span {
+            color: #d4a843;
+        }
+
+        .hero-video p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .hero-video .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-video .hero-stats .stat-item {
+            color: white;
+        }
+
+        .hero-video .hero-stats .stat-item .number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #d4a843;
+        }
+
+        .hero-video .hero-stats .stat-item .label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* ==========================================
+           SECTION 2: ROTATING TAGS
+           ========================================== */
+        .rotating-tags {
+            padding: 50px 24px;
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .tags-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tag-pill {
+            background: #f0f4f8;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #1e2a41;
+            border: 1px solid rgba(37, 99, 235, 0.06);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tag-pill:hover {
+            background: #d4a843;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -12px rgba(212, 168, 67, 0.3);
+        }
+
+        .tag-pill i {
+            color: #d4a843;
+        }
+
+        .tag-pill:hover i {
+            color: white;
+        }
+
+        /* ==========================================
+           SECTION 3: ACCORDION GRID WITH IMAGES
+           ========================================== */
+        .accordion-grid {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .accordion-grid-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .accordion-grid-left h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e2a41;
+            margin-bottom: 12px;
+        }
+
+        .accordion-grid-left h2 span {
+            color: #d4a843;
+        }
+
+        .accordion-grid-left p {
+            color: #4b5a73;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .accordion-grid-left .ag-image {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 16px;
+        }
+
+        .accordion-grid-left .ag-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .accordion-grid-right .ag-item {
+            background: white;
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .accordion-grid-right .ag-item:hover {
+            border-color: #d4a843;
+        }
+
+        .accordion-grid-right .ag-item .ag-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: #1e2a41;
+        }
+
+        .accordion-grid-right .ag-item .ag-question i {
+            color: #d4a843;
+            transition: 0.3s;
+        }
+
+        .accordion-grid-right .ag-item .ag-answer {
+            color: #4b5a73;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .accordion-grid-right .ag-item.active .ag-answer {
+            display: block;
+        }
+
+        .accordion-grid-right .ag-item.active .ag-question i {
+            transform: rotate(180deg);
+        }
+
+        /* ==========================================
+           SECTION 4: SKEWED CARDS WITH IMAGES
+           ========================================== */
+        .skewed-cards {
+            padding: 80px 24px;
+            background: #f8fafc;
+            width: 100%;
+        }
+
+        .skewed-cards-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .skewed-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .skewed-card {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid rgba(37, 99, 235, 0.06);
+            transition: all 0.3s;
+            transform: perspective(800px) rotateY(0deg);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .skewed-card:hover {
+            transform: perspective(800px) rotateY(5deg) translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(212, 168, 67, 0.1);
+            border-color: #d4a843;
+        }
+
+        .skewed-card .sc-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .skewed-card .sc-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .skewed-card .sc-body {
+            padding: 24px 24px 28px;
+        }
+
+        .skewed-card .sc-body h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e2a41;
+            margin-bottom: 8px;
+        }
+
+        .skewed-card .sc-body p {
+            color: #4b5a73;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ==========================================
+           SECTION 5: VIDEO OVERLAY
+           ========================================== */
+        .video-overlay {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .video-overlay-wrapper {
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            background: #1e2a41;
+            aspect-ratio: 16/9;
+        }
+
+        .video-overlay-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-overlay-wrapper .play-btn-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 42, 65, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .video-overlay-wrapper .play-btn-overlay:hover {
+            background: rgba(30, 42, 65, 0.2);
+        }
+
+        .video-overlay-wrapper .play-btn-overlay i {
+            font-size: 4rem;
+            color: #d4a843;
+            margin-bottom: 12px;
+        }
+
+        .video-overlay-wrapper .play-btn-overlay h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .video-overlay-wrapper .play-btn-overlay p {
+            opacity: 0.8;
+        }
+
+        /* ==========================================
+           SECTION 6: METER BARS
+           ========================================== */
+        .meter-bars {
+            padding: 80px 24px;
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .meter-bars-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .meter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .meter-item {
+            padding: 20px;
+        }
+
+        .meter-item .meter-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            color: #1e2a41;
+            margin-bottom: 6px;
+        }
+
+        .meter-item .meter-track {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .meter-item .meter-track .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #d4a843);
+            border-radius: 10px;
+            transition: 1s ease-out;
+        }
+
+        /* ==========================================
+           SECTION 7: DUAL STATS WITH IMAGES
+           ========================================== */
+        .dual-stats {
+            padding: 80px 24px;
+            background: #f8fafc;
+            width: 100%;
+        }
+
+        .dual-stats-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .dual-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .dual-stat {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 28px;
+        }
+
+        .dual-stat:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+            box-shadow: 0 15px 35px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .dual-stat .ds-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .dual-stat .ds-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dual-stat .ds-content .ds-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #2563eb;
+        }
+
+        .dual-stat .ds-content .ds-label {
+            color: #4b5a73;
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================
+           SECTION 8: TESTIMONIAL TILES
+           ========================================== */
+        .testimonial-tiles {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .testimonial-tiles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-tile {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            position: relative;
+            padding: 24px 24px 20px;
+        }
+
+        .testimonial-tile:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+            box-shadow: 0 15px 35px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .testimonial-tile .tt-quote-mark {
+            font-size: 3rem;
+            color: #d4a843;
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-family: serif;
+        }
+
+        .testimonial-tile .tt-stars {
+            color: #d4a843;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-tile .tt-text {
+            color: #1e2a41;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-tile .tt-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .testimonial-tile .tt-author .tt-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .testimonial-tile .tt-author .tt-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-tile .tt-author .tt-info .tt-name {
+            font-weight: 700;
+            color: #1e2a41;
+        }
+
+        .testimonial-tile .tt-author .tt-info .tt-role {
+            color: #4b5a73;
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================
+           SECTION 9: CTA SPLIT WITH IMAGES
+           ========================================== */
+        .cta-split-home {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .cta-split-wrapper {
+            background: linear-gradient(135deg, rgba(30, 42, 65, 0.92), rgba(30, 42, 65, 0.85)),
+                        url('cyb1.webp');
+            background-size: cover;
+            background-position: center;
+            border-radius: 28px;
+            padding: 60px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            color: white;
+        }
+
+        .cta-split-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .cta-split-content h2 span {
+            color: #d4a843;
+        }
+
+        .cta-split-content p {
+            opacity: 0.85;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .cta-split-image {
+            border-radius: 16px;
+            overflow: hidden;
+            min-height: 200px;
+        }
+
+        .cta-split-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            object-fit: cover;
+        }
+
+        /* ==========================================
+           SECTION 10: BLOG CARDS WITH IMAGES
+           ========================================== */
+        .blog-cards-home {
+            padding: 80px 24px;
+            background: #f8fafc;
+            width: 100%;
+        }
+
+        .blog-cards-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .blog-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .blog-card-home {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+        }
+
+        .blog-card-home:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+            box-shadow: 0 15px 35px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .blog-card-home .bch-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-card-home .bch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-card-home .bch-body {
+            padding: 24px;
+        }
+
+        .blog-card-home .bch-body .bch-tag {
+            display: inline-block;
+            background: rgba(212, 168, 67, 0.08);
+            color: #d4a843;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.6rem;
+            font-weight: 600;
+        }
+
+        .blog-card-home .bch-body h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e2a41;
+            margin: 8px 0;
+        }
+
+        .blog-card-home .bch-body p {
+            color: #4b5a73;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           SECTION 11: INTEGRATION LOGOS WITH IMAGES
+           ========================================== */
+        .integration-logos {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .integration-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .integration-logo-item {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .integration-logo-item:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+            box-shadow: 0 15px 35px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .integration-logo-item .il-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        .integration-logo-item .il-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .integration-logo-item span {
+            font-weight: 600;
+            color: #1e2a41;
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================
+           SECTION 12: PRICING
+           ========================================== */
+        .pricing-home {
+            padding: 80px 24px;
+            background: #f8fafc;
+            width: 100%;
+        }
+
+        .pricing-home-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .pricing-home-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-home-card {
+            background: white;
+            border-radius: 24px;
+            padding: 36px 28px;
+            border: 1px solid rgba(37, 99, 235, 0.06);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .pricing-home-card:hover {
+            transform: translateY(-6px);
+            border-color: #d4a843;
+            box-shadow: 0 20px 40px -12px rgba(212, 168, 67, 0.08);
+        }
+
+        .pricing-home-card.featured {
+            border-color: #d4a843;
+            background: linear-gradient(135deg, rgba(212, 168, 67, 0.04), rgba(37, 99, 235, 0.02));
+            position: relative;
+        }
+
+        .pricing-home-card.featured .featured-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #d4a843;
+            color: white;
+            padding: 4px 20px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-home-card .ph-price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #2563eb;
+            margin: 8px 0;
+        }
+
+        .pricing-home-card .ph-price span {
+            font-size: 1rem;
+            color: #4b5a73;
+            font-weight: 400;
+        }
+
+        .pricing-home-card .ph-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e2a41;
+        }
+
+        .pricing-home-card .ph-features {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .pricing-home-card .ph-features li {
+            padding: 6px 0;
+            color: #4b5a73;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-home-card .ph-features li i {
+            color: #10b981;
+        }
+
+        /* ==========================================
+           SECTION 13: FAQ
+           ========================================== */
+        .faq-home {
+            padding: 80px 24px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .faq-home-item {
+            background: white;
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .faq-home-item:hover {
+            border-color: #d4a843;
+        }
+
+        .faq-home-item .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: #1e2a41;
+            font-size: 1rem;
+        }
+
+        .faq-home-item .faq-question i {
+            color: #d4a843;
+            transition: 0.3s;
+        }
+
+        .faq-home-item .faq-answer {
+            color: #4b5a73;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .faq-home-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-home-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* ==========================================
+           SECTION 14: TEAM
+           ========================================== */
+        .team-home {
+            padding: 80px 24px;
+            background: #f8fafc;
+            width: 100%;
+        }
+
+        .team-home-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .team-home-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .team-home-member {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+        }
+
+        .team-home-member:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+            box-shadow: 0 15px 35px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .team-home-member .thm-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 12px;
+        }
+
+        .team-home-member .thm-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-home-member h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e2a41;
+        }
+
+        .team-home-member .thm-role {
+            color: #4b5a73;
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================
+           SECTION 15: PARTNERS
+           ========================================== */
+        .partners-home {
+            padding: 60px 24px 80px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .partners-home-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .partner-home-item {
+            background: white;
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .partner-home-item:hover {
+            border-color: #d4a843;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .partner-home-item .ph-logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .partner-home-item .ph-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .partner-home-item span {
+            font-weight: 600;
+            color: #1e2a41;
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 1024px) {
+            .hero-video h1 { font-size: 3rem; }
+            .accordion-grid-wrapper { grid-template-columns: 1fr; }
+            .skewed-grid { grid-template-columns: repeat(2, 1fr); }
+            .meter-grid { grid-template-columns: 1fr; }
+            .dual-stats-grid { grid-template-columns: 1fr; }
+            .testimonial-tiles-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-split-wrapper { grid-template-columns: 1fr; padding: 40px 30px; }
+            .blog-cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .integration-logos-grid { grid-template-columns: repeat(3, 1fr); }
+            .pricing-home-grid { grid-template-columns: repeat(2, 1fr); }
+            .team-home-grid { grid-template-columns: repeat(2, 1fr); }
+            .partners-home-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-video h1 { font-size: 2.5rem; }
+            .hero-video p { font-size: 1rem; }
+            .hero-video .hero-stats { gap: 20px; }
+            .hero-video .hero-stats .stat-item .number { font-size: 1.5rem; }
+            
+            .skewed-grid { grid-template-columns: 1fr; }
+            .skewed-card:hover { transform: translateY(-8px); }
+            
+            .testimonial-tiles-grid { grid-template-columns: 1fr; }
+            .blog-cards-grid { grid-template-columns: 1fr; }
+            .integration-logos-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-home-grid { grid-template-columns: 1fr; }
+            .team-home-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .team-home-member .thm-avatar { width: 65px; height: 65px; }
+            .partners-home-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .partner-home-item { padding: 16px 12px; min-height: 80px; }
+            .partner-home-item .ph-logo { width: 45px; height: 45px; }
+            
+            .section-header h2 { font-size: 2rem; }
+            .section-header p { font-size: 0.95rem; }
+            .accordion-grid-left h2 { font-size: 2rem; }
+            
+            .cta-split-content h2 { font-size: 1.8rem; }
+            .cta-split-wrapper { padding: 30px 20px; }
+            .cta-split-image { min-height: 180px; }
+            .cta-split-image img { min-height: 180px; }
+            
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .hero-buttons .btn-primary, .hero-buttons .btn-secondary { width: 100%; justify-content: center; }
+            
+            .faq-home-item { padding: 16px 18px; }
+            .faq-home-item .faq-question { font-size: 0.9rem; }
+            .pricing-home-card { padding: 28px 20px; }
+            .pricing-home-card .ph-price { font-size: 2.8rem; }
+            .video-overlay-wrapper { aspect-ratio: 4/3; }
+            .tags-container { gap: 12px; }
+            .tag-pill { padding: 8px 16px; font-size: 0.75rem; }
+            .dual-stat { flex-direction: column; text-align: center; padding: 24px; }
+            .dual-stat .ds-image { margin: 0 auto; }
+            .meter-item { padding: 12px; }
+            .accordion-grid-right .ag-item { padding: 14px 16px; }
+            .accordion-grid-left .ag-image img { height: 150px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-video h1 { font-size: 2rem; }
+            .hero-video .hero-badge { font-size: 0.65rem; padding: 6px 16px; }
+            .hero-video .hero-stats { flex-direction: column; gap: 12px; }
+            .hero-video .hero-stats .stat-item .number { font-size: 1.8rem; }
+            
+            .skewed-card { padding: 0; }
+            .skewed-card .sc-image { height: 160px; }
+            .skewed-card .sc-body { padding: 18px 16px 20px; }
+            
+            .dual-stats-grid { grid-template-columns: 1fr; }
+            .dual-stat .ds-content .ds-number { font-size: 2rem; }
+            
+            .testimonial-tile { padding: 20px; }
+            .testimonial-tile .tt-text { font-size: 0.85rem; }
+            
+            .integration-logos-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .integration-logo-item { padding: 16px; min-height: 80px; }
+            .integration-logo-item .il-image { width: 40px; height: 40px; }
+            
+            .team-home-grid { grid-template-columns: 1fr; }
+            .partners-home-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .partner-home-item { padding: 14px 10px; min-height: 70px; }
+            .partner-home-item .ph-logo { width: 40px; height: 40px; }
+            .partner-home-item span { font-size: 0.75rem; }
+            
+            .section-header h2 { font-size: 1.6rem; }
+            .section-header .section-badge { font-size: 0.65rem; padding: 3px 12px; }
+            .accordion-grid-left h2 { font-size: 1.6rem; }
+            .cta-split-content h2 { font-size: 1.4rem; }
+            .pricing-home-card .ph-price { font-size: 2.2rem; }
+            .blog-card-home .bch-image { height: 160px; }
+            .video-overlay-wrapper .play-btn-overlay i { font-size: 3rem; }
+            .video-overlay-wrapper .play-btn-overlay h3 { font-size: 1.2rem; }
+            .video-overlay-wrapper .play-btn-overlay p { font-size: 0.8rem; }
+            .meter-item .meter-label { font-size: 0.85rem; }
+            .faq-home-item .faq-answer { font-size: 0.85rem; }
+            .tag-pill { font-size: 0.7rem; padding: 6px 12px; }
+            .dual-stat .ds-image { width: 50px; height: 50px; }
+        }
+
+        @media (max-width: 380px) {
+            .hero-video h1 { font-size: 1.6rem; }
+            .section-header h2 { font-size: 1.3rem; }
+            .partners-home-grid { grid-template-columns: 1fr 1fr; }
+            .integration-logos-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f0f4f8; }
+        ::-webkit-scrollbar-thumb { background: #d4a843; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c49a3d; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER PLACEHOLDER ===== -->
+    <div id="header-placeholder"></div>
+
+    <!-- ==========================================
+    SECTION 1: HERO WITH VIDEO BG
+    ========================================== -->
+    <section class="hero-video" data-aos="fade-down" data-aos-duration="1000">
+        <video autoplay muted loop playsinline id="heroBgVideo">
+            <source src="cybv2.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-shield-halved"></i> Next-Gen Cybersecurity</div>
+            <h1>Protect Your <span>Digital Future</span></h1>
+            <p>AI-powered threat detection, zero-trust security, and 24/7 monitoring to keep your organization safe from evolving cyber threats.</p>
+            <div class="hero-buttons">
+                <a href="404.html" class="btn-primary"><i class="fas fa-rocket"></i> Get Started</a>
+                <a href="404.html" class="btn-secondary"><i class="fas fa-play-circle"></i> Watch Demo</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="number">2.8K+</div>
+                    <div class="label">Threats Blocked Daily</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">99.9%</div>
+                    <div class="label">Detection Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">12K+</div>
+                    <div class="label">Happy Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 2: ROTATING TAGS
+    ========================================== -->
+    <section class="rotating-tags" data-aos="fade-up">
+        <div class="tags-container">
+            <span class="tag-pill"><i class="fas fa-robot"></i> AI-Powered Security</span>
+            <span class="tag-pill"><i class="fas fa-cloud"></i> Cloud Native</span>
+            <span class="tag-pill"><i class="fas fa-shield-virus"></i> Zero-Trust</span>
+            <span class="tag-pill"><i class="fas fa-bolt"></i> Real-Time Detection</span>
+            <span class="tag-pill"><i class="fas fa-clock"></i> 24/7 Monitoring</span>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 3: ACCORDION GRID WITH IMAGES
+    ========================================== -->
+    <section class="accordion-grid" data-aos="fade-up">
+        <div class="accordion-grid-wrapper">
+            <div class="accordion-grid-left" data-aos="fade-right">
+                <h2>Why <span>Stackly</span></h2>
+                <p>Enterprise-grade features designed to protect your organization from evolving threats.</p>
+                <div class="ag-image">
+                    <img src="cyb1.webp" alt="Cybersecurity">
+                </div>
+                <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
+                    <a href="404.html" class="btn-primary"><i class="fas fa-rocket"></i> Get Started</a>
+                    <a href="404.html" class="btn-outline"><i class="fas fa-phone"></i> Contact</a>
+                </div>
+            </div>
+            <div class="accordion-grid-right" data-aos="fade-left">
+                <div class="ag-item">
+                    <div class="ag-question">
+                        <span>AI-Powered Threat Detection</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="ag-answer">Machine learning models trained on 2M+ threat samples for 99.9% accuracy in detecting and blocking threats.</div>
+                </div>
+                <div class="ag-item">
+                    <div class="ag-question">
+                        <span>24/7 SOC Monitoring</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="ag-answer">Round-the-clock monitoring with rapid response and dedicated security experts to protect your organization.</div>
+                </div>
+                <div class="ag-item">
+                    <div class="ag-question">
+                        <span>Zero-Trust Security</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="ag-answer">Implement zero-trust architecture with continuous verification and granular access controls for maximum security.</div>
+                </div>
+                <div class="ag-item">
+                    <div class="ag-question">
+                        <span>Compliance Ready</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="ag-answer">Fully compliant with GDPR, HIPAA, ISO 27001, SOC 2, and other industry standards.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 4: SKEWED CARDS WITH IMAGES
+    ========================================== -->
+    <section class="skewed-cards" data-aos="fade-up">
+        <div class="skewed-cards-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-star"></i> Our Services</div>
+                <h2>What We <span>Offer</span></h2>
+                <p>Comprehensive cybersecurity services tailored to your needs</p>
+            </div>
+            <div class="skewed-grid">
+                <div class="skewed-card" data-aos="flip-left" data-aos-delay="0">
+                    <div class="sc-image">
+                        <img src="cyb2.webp" alt="Threat Detection">
+                    </div>
+                    <div class="sc-body">
+                        <h3>AI Threat Detection</h3>
+                        <p>Machine learning models for accurate detection of known and emerging threats.</p>
+                        <a href="404.html" class="btn-sm" style="margin-top:12px;">Learn More →</a>
+                    </div>
+                </div>
+                <div class="skewed-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="sc-image">
+                        <img src="cyb3.webp" alt="Cloud Security">
+                    </div>
+                    <div class="sc-body">
+                        <h3>Cloud Security</h3>
+                        <p>Secure AWS, Azure, and GCP environments with continuous compliance scanning.</p>
+                        <a href="404.html" class="btn-sm" style="margin-top:12px;">Learn More →</a>
+                    </div>
+                </div>
+                <div class="skewed-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="sc-image">
+                        <img src="cyb4.webp" alt="Incident Response">
+                    </div>
+                    <div class="sc-body">
+                        <h3>Incident Response</h3>
+                        <p>Rapid response with automated workflows and dedicated SOC support.</p>
+                        <a href="404.html" class="btn-sm" style="margin-top:12px;">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 5: VIDEO OVERLAY
+    ========================================== -->
+    <section class="video-overlay" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-video"></i> Watch Demo</div>
+            <h2>See Security <span>In Action</span></h2>
+            <p>Watch how our platform detects and responds to threats in real-time</p>
+        </div>
+        <div class="video-overlay-wrapper" data-aos="zoom-in">
+            <iframe src="cybv1.mp4" title="Security Demo" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 6: METER BARS
+    ========================================== -->
+    <section class="meter-bars" data-aos="fade-up">
+        <div class="meter-bars-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-chart-simple"></i> Our Capabilities</div>
+                <h2>Security <span>Performance</span></h2>
+                <p>Key metrics that demonstrate our commitment to security excellence</p>
+            </div>
+            <div class="meter-grid">
+                <div class="meter-item" data-aos="fade-right" data-aos-delay="0">
+                    <div class="meter-label">
+                        <span>Threat Detection Rate</span>
+                        <span>99.9%</span>
+                    </div>
+                    <div class="meter-track"><div class="meter-fill" style="width:99.9%"></div></div>
+                </div>
+                <div class="meter-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="meter-label">
+                        <span>System Uptime</span>
+                        <span>99.98%</span>
+                    </div>
+                    <div class="meter-track"><div class="meter-fill" style="width:99.98%"></div></div>
+                </div>
+                <div class="meter-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="meter-label">
+                        <span>Customer Satisfaction</span>
+                        <span>98.7%</span>
+                    </div>
+                    <div class="meter-track"><div class="meter-fill" style="width:98.7%"></div></div>
+                </div>
+                <div class="meter-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="meter-label">
+                        <span>Threats Blocked Accuracy</span>
+                        <span>96.2%</span>
+                    </div>
+                    <div class="meter-track"><div class="meter-fill" style="width:96.2%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 7: DUAL STATS WITH IMAGES
+    ========================================== -->
+    <section class="dual-stats" data-aos="fade-up">
+        <div class="dual-stats-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-chart-simple"></i> By The Numbers</div>
+                <h2>Our <span>Impact</span></h2>
+                <p>Key metrics that demonstrate our commitment to security excellence</p>
+            </div>
+            <div class="dual-stats-grid">
+                <div class="dual-stat" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="ds-image">
+                        <img src="cyb5.webp" alt="Threats">
+                    </div>
+                    <div class="ds-content">
+                        <div class="ds-number">2.8K+</div>
+                        <div class="ds-label">Threats Blocked Daily</div>
+                    </div>
+                </div>
+                <div class="dual-stat" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="ds-image">
+                        <img src="cyb6.webp" alt="Response">
+                    </div>
+                    <div class="ds-content">
+                        <div class="ds-number">2.4min</div>
+                        <div class="ds-label">Avg Response Time</div>
+                    </div>
+                </div>
+                <div class="dual-stat" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="ds-image">
+                        <img src="cyb7.webp" alt="Detection">
+                    </div>
+                    <div class="ds-content">
+                        <div class="ds-number">99.9%</div>
+                        <div class="ds-label">Detection Rate</div>
+                    </div>
+                </div>
+                <div class="dual-stat" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="ds-image">
+                        <img src="cyb8.webp" alt="Clients">
+                    </div>
+                    <div class="ds-content">
+                        <div class="ds-number">12K+</div>
+                        <div class="ds-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 8: TESTIMONIAL TILES
+    ========================================== -->
+    <section class="testimonial-tiles" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-quote-right"></i> Testimonials</div>
+            <h2>What Our <span>Clients</span> Say</h2>
+            <p>Trusted by leading organizations worldwide</p>
+        </div>
+        <div class="testimonial-tiles-grid">
+            <div class="testimonial-tile" data-aos="fade-up" data-aos-delay="0">
+                <div class="tt-quote-mark">"</div>
+                <div class="tt-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="tt-text">"Stackly has transformed our security posture. We've reduced incidents by 60%."</div>
+                <div class="tt-author">
+                    <div class="tt-avatar"><img src="cyb9.webp" alt="John"></div>
+                    <div class="tt-info">
+                        <div class="tt-name">John Anderson</div>
+                        <div class="tt-role">CTO, TechCorp</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-tile" data-aos="fade-up" data-aos-delay="100">
+                <div class="tt-quote-mark">"</div>
+                <div class="tt-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="tt-text">"The AI-powered detection and automated response are game-changing for us."</div>
+                <div class="tt-author">
+                    <div class="tt-avatar"><img src="cyb10.webp" alt="Sarah"></div>
+                    <div class="tt-info">
+                        <div class="tt-name">Sarah Mitchell</div>
+                        <div class="tt-role">CISO, HealthSecure</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-tile" data-aos="fade-up" data-aos-delay="200">
+                <div class="tt-quote-mark">"</div>
+                <div class="tt-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="tt-text">"Exceptional service and support. Our security has never been stronger."</div>
+                <div class="tt-author">
+                    <div class="tt-avatar"><img src="cyb11.webp" alt="Michael"></div>
+                    <div class="tt-info">
+                        <div class="tt-name">Michael Chen</div>
+                        <div class="tt-role">VP Security, FinBank</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 9: CTA SPLIT
+    ========================================== -->
+    <section class="cta-split-home" data-aos="fade-up">
+        <div class="cta-split-wrapper">
+            <div class="cta-split-content" data-aos="fade-right">
+                <h2>Ready to <span>Secure</span> Your Business?</h2>
+                <p>Join 12,000+ organizations that trust Stackly for their cybersecurity needs.</p>
+                <a href="404.html" class="btn-primary"><i class="fas fa-rocket"></i> Start Free Trial</a>
+            </div>
+            <div class="cta-split-image" data-aos="fade-left">
+                <img src="cyb12.webp" alt="Security">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 10: BLOG CARDS
+    ========================================== -->
+    <section class="blog-cards-home" data-aos="fade-up">
+        <div class="blog-cards-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-newspaper"></i> Latest News</div>
+                <h2>Security <span>Insights</span></h2>
+                <p>Stay updated with the latest cybersecurity trends and threats</p>
+            </div>
+            <div class="blog-cards-grid">
+                <div class="blog-card-home" data-aos="fade-up" data-aos-delay="0">
+                    <div class="bch-image">
+                        <img src="cyb13.webp" alt="Ransomware">
+                    </div>
+                    <div class="bch-body">
+                        <span class="bch-tag">Threat Alert</span>
+                        <h4>Ransomware Attacks Up 78% in 2024</h4>
+                        <p>New variants targeting healthcare and critical infrastructure sectors.</p>
+                        <a href="404.html" class="btn-sm" style="margin-top:8px;">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card-home" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bch-image">
+                        <img src="cyb14.webp" alt="Phishing">
+                    </div>
+                    <div class="bch-body">
+                        <span class="bch-tag">Security</span>
+                        <h4>AI-Powered Phishing Campaigns</h4>
+                        <p>How attackers are using AI to create more convincing phishing emails.</p>
+                        <a href="404.html" class="btn-sm" style="margin-top:8px;">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card-home" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bch-image">
+                        <img src="cyb15.webp" alt="Zero-Day">
+                    </div>
+                    <div class="bch-body">
+                        <span class="bch-tag">Vulnerability</span>
+                        <h4>Zero-Day Exploits on the Rise</h4>
+                        <p>Critical vulnerabilities being exploited in the wild at record pace.</p>
+                        <a href="404.html" class="btn-sm" style="margin-top:8px;">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 11: INTEGRATION LOGOS WITH IMAGES
+    ========================================== -->
+    <section class="integration-logos" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-plug"></i> Integrations</div>
+            <h2>Seamless <span>Integrations</span></h2>
+            <p>Connect with 100+ security tools and platforms</p>
+        </div>
+        <div class="integration-logos-grid">
+            <div class="integration-logo-item" data-aos="zoom-in" data-aos-delay="0">
+                <div class="il-image">
+                    <img src="cyb16.webp" alt="AWS">
+                </div>
+                <span>AWS</span>
+            </div>
+            <div class="integration-logo-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="il-image">
+                    <img src="cyb17.webp" alt="Azure">
+                </div>
+                <span>Azure</span>
+            </div>
+            <div class="integration-logo-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="il-image">
+                    <img src="cyb18.webp" alt="GCP">
+                </div>
+                <span>GCP</span>
+            </div>
+            <div class="integration-logo-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="il-image">
+                    <img src="cyb19.webp" alt="API">
+                </div>
+                <span>API Access</span>
+            </div>
+            <div class="integration-logo-item" data-aos="zoom-in" data-aos-delay="400">
+                <div class="il-image">
+                    <img src="cyb20.webp" alt="Salesforce">
+                </div>
+                <span>Salesforce</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 12: PRICING
+    ========================================== -->
+    <section class="pricing-home" data-aos="fade-up">
+        <div class="pricing-home-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-tag"></i> Pricing</div>
+                <h2>Choose Your <span>Plan</span></h2>
+                <p>Flexible pricing options for organizations of all sizes</p>
+            </div>
+            <div class="pricing-home-grid">
+                <div class="pricing-home-card" data-aos="flip-left" data-aos-delay="0">
+                    <div class="ph-name">Starter</div>
+                    <div class="ph-price">$99<span>/mo</span></div>
+                    <ul class="ph-features">
+                        <li><i class="fas fa-check"></i> Basic threat detection</li>
+                        <li><i class="fas fa-check"></i> Email alerts</li>
+                        <li><i class="fas fa-check"></i> 30-day data retention</li>
+                    </ul>
+                    <a href="404.html" class="btn-outline" style="width:100%; justify-content:center;">Get Started</a>
+                </div>
+                <div class="pricing-home-card featured" data-aos="flip-left" data-aos-delay="100">
+                    <div class="featured-tag">Popular</div>
+                    <div class="ph-name">Professional</div>
+                    <div class="ph-price">$249<span>/mo</span></div>
+                    <ul class="ph-features">
+                        <li><i class="fas fa-check"></i> AI-powered detection</li>
+                        <li><i class="fas fa-check"></i> Real-time alerts &amp; SMS</li>
+                        <li><i class="fas fa-check"></i> 90-day data retention</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                    </ul>
+                    <a href="404.html" class="btn-primary" style="width:100%; justify-content:center;">Start Free Trial</a>
+                </div>
+                <div class="pricing-home-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="ph-name">Enterprise</div>
+                    <div class="ph-price">Custom</div>
+                    <ul class="ph-features">
+                        <li><i class="fas fa-check"></i> Unlimited systems</li>
+                        <li><i class="fas fa-check"></i> Custom detection models</li>
+                        <li><i class="fas fa-check"></i> Dedicated SOC support</li>
+                    </ul>
+                    <a href="404.html" class="btn-outline" style="width:100%; justify-content:center;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 13: FAQ
+    ========================================== -->
+    <section class="faq-home" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-question-circle"></i> FAQ</div>
+            <h2>Frequently Asked <span>Questions</span></h2>
+            <p>Common questions about our cybersecurity services</p>
+        </div>
+
+        <div class="faq-home-item" data-aos="fade-up" data-aos-delay="0">
+            <div class="faq-question">
+                <span>What cybersecurity services do you offer?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">We offer threat detection, cloud security, incident response, vulnerability assessments, compliance management, and 24/7 SOC monitoring services.</div>
+        </div>
+
+        <div class="faq-home-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="faq-question">
+                <span>How does your threat detection work?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Our AI-powered threat detection uses machine learning models trained on 2M+ threat samples to identify and block threats in real-time with 99.9% accuracy.</div>
+        </div>
+
+        <div class="faq-home-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-question">
+                <span>Is your platform compliant with industry standards?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Yes, our platform is fully compliant with GDPR, HIPAA, ISO 27001, SOC 2, and other industry standards.</div>
+        </div>
+
+        <div class="faq-home-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="faq-question">
+                <span>What support options are available?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">We offer 24/7 SOC monitoring, email support, phone support, and dedicated account managers for enterprise clients.</div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 14: TEAM
+    ========================================== -->
+    <section class="team-home" data-aos="fade-up">
+        <div class="team-home-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-users"></i> Our Team</div>
+                <h2>Security <span>Experts</span></h2>
+                <p>Meet the team behind Stackly's cybersecurity solutions</p>
+            </div>
+            <div class="team-home-grid">
+                <div class="team-home-member" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="thm-avatar"><img src="cyb1.webp" alt="John"></div>
+                    <h4>John Anderson</h4>
+                    <div class="thm-role">CEO &amp; Founder</div>
+                </div>
+                <div class="team-home-member" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="thm-avatar"><img src="cyb2.webp" alt="Sarah"></div>
+                    <h4>Sarah Mitchell</h4>
+                    <div class="thm-role">CISO</div>
+                </div>
+                <div class="team-home-member" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="thm-avatar"><img src="cyb3.webp" alt="Michael"></div>
+                    <h4>Michael Chen</h4>
+                    <div class="thm-role">VP of Engineering</div>
+                </div>
+                <div class="team-home-member" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="thm-avatar"><img src="cyb4.webp" alt="Emily"></div>
+                    <h4>Emily Davis</h4>
+                    <div class="thm-role">Security Analyst</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 15: PARTNERS
+    ========================================== -->
+    <section class="partners-home" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-handshake"></i> Trusted By</div>
+            <h2>Trusted by <span>Industry</span> Leaders</h2>
+            <p>Leading organizations rely on Stackly for their security needs</p>
+        </div>
+        <div class="partners-home-grid">
+            <div class="partner-home-item" data-aos="zoom-in" data-aos-delay="0">
+                <div class="ph-logo">
+                    <img src="cyb5.webp" alt="TechCorp">
+                </div>
+                <span>TechCorp</span>
+            </div>
+            <div class="partner-home-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="ph-logo">
+                    <img src="cyb6.webp" alt="HealthSecure">
+                </div>
+                <span>HealthSecure</span>
+            </div>
+            <div class="partner-home-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="ph-logo">
+                    <img src="cyb7.webp" alt="FinBank">
+                </div>
+                <span>FinBank</span>
+            </div>
+            <div class="partner-home-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="ph-logo">
+                    <img src="cyb8.webp" alt="CloudNexus">
+                </div>
+                <span>CloudNexus</span>
+            </div>
+            <div class="partner-home-item" data-aos="zoom-in" data-aos-delay="400">
+                <div class="ph-logo">
+                    <img src="cyb9.webp" alt="RetailTech">
+                </div>
+                <span>RetailTech</span>
+            </div>
+            <div class="partner-home-item" data-aos="zoom-in" data-aos-delay="500">
+                <div class="ph-logo">
+                    <img src="cyb10.webp" alt="DevSecOps">
+                </div>
+                <span>DevSecOps</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER PLACEHOLDER ===== -->
+    <div id="footer-placeholder"></div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== Load Header =====
+            fetch('header.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    initHeader();
+                })
+                .catch(error => {
+                    console.error('Error loading header:', error);
+                    document.getElementById('header-placeholder').innerHTML = '<div style="background:#2563eb; color:white; padding:10px; text-align:center;">Header failed to load</div>';
+                });
+
+            // ===== Load Footer =====
+            fetch('footer.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    initFooter();
+                })
+                .catch(error => {
+                    console.error('Error loading footer:', error);
+                    document.getElementById('footer-placeholder').innerHTML = '<div style="background:#1e2a41; color:#a0aec0; padding:20px; text-align:center;">Footer failed to load</div>';
+                });
+
+            // ===== Accordion Grid =====
+            document.querySelectorAll('.ag-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+
+            // ===== FAQ Accordion =====
+            document.querySelectorAll('.faq-home-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+
+            // ===== AOS =====
+            AOS.init({
+                once: false,
+                mirror: true,
+                duration: 800,
+                offset: 30,
+                easing: 'ease-out-cubic'
+            });
+
+            console.log('%c🛡️ Stackly Cybersecurity | Home', 'color: #2563eb; font-size: 16px; font-weight: bold;');
+        });
+
+        function initHeader() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (hamburgerBtn && mobileMenu) {
+                hamburgerBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const page = this.getAttribute('data-page');
+                    if (page) window.location.href = page + '.html';
+                });
+            });
+
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const page = this.getAttribute('data-page');
+                    if (page) window.location.href = page + '.html';
+                    if (hamburgerBtn && mobileMenu) {
+                        hamburgerBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            const loginBtn = document.getElementById('loginBtn');
+            if (loginBtn) loginBtn.addEventListener('click', (e) => { e.preventDefault();
+                window.location.href = 'login.html'; });
+
+            const getStartedBtn = document.getElementById('getStartedBtn');
+            if (getStartedBtn) getStartedBtn.addEventListener('click', (e) => { e.preventDefault();
+                window.location.href = 'signup.html'; });
+
+            const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+            if (mobileLoginBtn) {
+                const newBtn = mobileLoginBtn.cloneNode(true);
+                mobileLoginBtn.parentNode.replaceChild(newBtn, mobileLoginBtn);
+                newBtn.addEventListener('click', (e) => { e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = 'login.html'; });
+            }
+
+            const mobileGetStartedBtn = document.getElementById('mobileGetStartedBtn');
+            if (mobileGetStartedBtn) {
+                const newBtn = mobileGetStartedBtn.cloneNode(true);
+                mobileGetStartedBtn.parentNode.replaceChild(newBtn, mobileGetStartedBtn);
+                newBtn.addEventListener('click', (e) => { e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = 'signup.html'; });
+            }
+
+            const logoSection = document.querySelector('.logo-section');
+            if (logoSection) logoSection.addEventListener('click', (e) => { e.preventDefault();
+                window.location.href = 'index.html'; });
+        }
+
+        function initFooter() {
+            const subscribeBtn = document.getElementById('footerSubscribeBtn');
+            const emailInput = document.getElementById('footerEmail');
+            const emailError = document.getElementById('footerEmailError');
+
+            function validateEmail(email) {
+                return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email);
+            }
+
+            if (subscribeBtn) {
+                subscribeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+                    if (!email) {
+                        emailError.classList.add('show');
+                        emailError.textContent = 'Please enter your email address';
+                        emailInput.classList.add('error');
+                    } else if (!validateEmail(email)) {
+                        emailError.classList.add('show');
+                        emailError.textContent = 'Please enter a valid email address';
+                        emailInput.classList.add('error');
+                    } else {
+                        emailError.classList.remove('show');
+                        emailInput.classList.remove('error');
+                        window.location.href = '404.html';
+                    }
+                });
+            }
+
+            if (emailInput) {
+                emailInput.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        emailError.classList.remove('show');
+                        this.classList.remove('error');
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const hamburgerBtn = document.getElementById('hamburgerBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (hamburgerBtn && mobileMenu) {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

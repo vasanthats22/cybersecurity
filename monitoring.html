@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Monitoring-Cybersecurity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1e2a41;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        #header-placeholder {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        a, .btn-primary, .btn-secondary, .btn-sm, .btn-outline, .btn-cta, .btn-dark,
+        .nav-btn, .mobile-nav-btn, .back-home-btn, .logout-btn {
+            text-decoration: none !important;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4a843, #c49a3d);
+            color: white !important;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 8px 25px rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 168, 67, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white !important;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-secondary:hover {
+            border-color: #d4a843;
+            background: rgba(212, 168, 67, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 28px;
+            background: transparent;
+            color: #2563eb !important;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 2px solid #2563eb;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-sm {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #f0f4f8;
+            color: #2563eb !important;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 1px solid transparent;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-sm:hover {
+            background: #2563eb;
+            color: white !important;
+            border-color: #2563eb;
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white !important;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.4);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header .section-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.06);
+            color: #2563eb;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1e2a41;
+        }
+
+        .section-header h2 span {
+            color: #d4a843;
+        }
+
+        .section-header p {
+            color: #4b5a73;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 8px auto 0;
+        }
+
+        /* ==========================================
+           SECTION 1: FULLSCREEN HERO WITH VIDEO BG
+           ========================================== */
+        .hero-fullscreen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 60px;
+            border-bottom: 3px solid #d4a843;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(30, 42, 65, 0.92), rgba(30, 42, 65, 0.85));
+        }
+
+        .hero-fullscreen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('cyb18.webp') center/cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .hero-fullscreen .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero-fullscreen .hero-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #93c5fd;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero-fullscreen h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-fullscreen h1 span {
+            color: #d4a843;
+        }
+
+        .hero-fullscreen p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        /* ==========================================
+           SECTION 2: ZIG-ZAG LAYOUT
+           ========================================== */
+        .zigzag-section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .zigzag-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .zigzag-item:last-child { margin-bottom: 0; }
+
+        .zigzag-item.reverse { direction: rtl; }
+        .zigzag-item.reverse > * { direction: ltr; }
+
+        .zigzag-image {
+            border-radius: 24px;
+            overflow: hidden;
+            min-height: 280px;
+        }
+
+        .zigzag-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            object-fit: cover;
+        }
+
+        .zigzag-content h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e2a41;
+            margin-bottom: 12px;
+        }
+
+        .zigzag-content h3 span {
+            color: #d4a843;
+        }
+
+        .zigzag-content p {
+            color: #4b5a73;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .zigzag-content .feature-tag {
+            display: inline-block;
+            background: rgba(212, 168, 67, 0.08);
+            color: #d4a843;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* ==========================================
+           SECTION 3: STATS WITH ICONS
+           ========================================== */
+        .stats-icons-section {
+            padding: 80px 24px;
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .stats-icons-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .stats-icons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stats-icon-item {
+            text-align: center;
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+        }
+
+        .stats-icon-item:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+            box-shadow: 0 15px 35px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .stats-icon-item .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(212, 168, 67, 0.03));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 2rem;
+            color: #2563eb;
+        }
+
+        .stats-icon-item .number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #1e2a41;
+        }
+
+        .stats-icon-item .label {
+            color: #4b5a73;
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================
+           SECTION 4: CARDS WITH BADGES
+           ========================================== */
+        .badge-cards-section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .badge-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .badge-card {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(37, 99, 235, 0.06);
+            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .badge-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4a843;
+            box-shadow: 0 20px 40px -12px rgba(212, 168, 67, 0.08);
+        }
+
+        .badge-card .card-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.06);
+            color: #2563eb;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .badge-card .card-icon {
+            font-size: 3rem;
+            color: #d4a843;
+            margin-bottom: 12px;
+        }
+
+        .badge-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e2a41;
+            margin-bottom: 8px;
+        }
+
+        .badge-card p {
+            color: #4b5a73;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ==========================================
+           SECTION 5: SPLIT WITH VIDEO
+           ========================================== */
+        .split-video-section {
+            padding: 80px 24px;
+            background: #f8fafc;
+            width: 100%;
+        }
+
+        .split-video-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .split-video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .split-video-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e2a41;
+            margin-bottom: 12px;
+        }
+
+        .split-video-content h2 span {
+            color: #d4a843;
+        }
+
+        .split-video-content p {
+            color: #4b5a73;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .split-video-content .check-list {
+            list-style: none;
+        }
+
+        .split-video-content .check-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #1e2a41;
+            font-size: 0.95rem;
+        }
+
+        .split-video-content .check-list li i {
+            color: #10b981;
+        }
+
+        .split-video-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.15);
+            background: #1e2a41;
+            aspect-ratio: 16/9;
+        }
+
+        .split-video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ==========================================
+           SECTION 6: TESTIMONIALS
+           ========================================== */
+        .testimonials-section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-item {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+        }
+
+        .testimonial-item:hover {
+            border-color: #d4a843;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .testimonial-item .stars {
+            color: #d4a843;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-item .quote {
+            color: #1e2a41;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-item .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .testimonial-item .author .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .testimonial-item .author .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-item .author .info .name {
+            font-weight: 700;
+            color: #1e2a41;
+        }
+
+        .testimonial-item .author .info .role {
+            color: #4b5a73;
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================
+           SECTION 7: TIMELINE VERTICAL
+           ========================================== */
+        .timeline-vertical {
+            padding: 80px 24px;
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .timeline-vertical-container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .timeline-vertical .tl-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+
+        .timeline-vertical .tl-item:last-child { margin-bottom: 0; }
+
+        .timeline-vertical .tl-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4a843, #c49a3d);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-vertical .tl-content {
+            padding-top: 8px;
+        }
+
+        .timeline-vertical .tl-content .tl-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-vertical .tl-content h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e2a41;
+            margin: 4px 0;
+        }
+
+        .timeline-vertical .tl-content p {
+            color: #4b5a73;
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           SECTION 8: PRICING
+           ========================================== */
+        .pricing-section {
+            padding: 80px 24px;
+            background: #f8fafc;
+            width: 100%;
+        }
+
+        .pricing-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 36px 28px;
+            border: 1px solid rgba(37, 99, 235, 0.06);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: #d4a843;
+            box-shadow: 0 20px 40px -12px rgba(212, 168, 67, 0.08);
+        }
+
+        .pricing-card.popular {
+            border-color: #d4a843;
+            background: linear-gradient(135deg, rgba(212, 168, 67, 0.04), rgba(37, 99, 235, 0.02));
+            position: relative;
+        }
+
+        .pricing-card.popular .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #d4a843;
+            color: white;
+            padding: 4px 20px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-card .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #2563eb;
+            margin: 8px 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            color: #4b5a73;
+            font-weight: 400;
+        }
+
+        .pricing-card .plan-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e2a41;
+        }
+
+        .pricing-card .features {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .pricing-card .features li {
+            padding: 6px 0;
+            color: #4b5a73;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-card .features li i {
+            color: #10b981;
+        }
+
+        /* ==========================================
+           SECTION 9: LOGO ROW
+           ========================================== */
+        .logo-row-section {
+            padding: 60px 24px;
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .logo-row-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo-row-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .logo-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90px;
+        }
+
+        .logo-item:hover {
+            border-color: #d4a843;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .logo-item i {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 6px;
+        }
+
+        .logo-item span {
+            font-weight: 600;
+            color: #1e2a41;
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================
+           SECTION 10: FEATURES GRID
+           ========================================== */
+        .features-grid-section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .features-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+            box-shadow: 0 15px 35px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .feature-item .feature-icon {
+            font-size: 2.5rem;
+            color: #d4a843;
+            margin-bottom: 12px;
+        }
+
+        .feature-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e2a41;
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            color: #4b5a73;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           SECTION 11: CTA WITH IMAGE
+           ========================================== */
+        .cta-image-section {
+            padding: 80px 24px;
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .cta-image-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .cta-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.04), rgba(212, 168, 67, 0.02));
+            border-radius: 28px;
+            padding: 50px;
+            border: 1px solid rgba(37, 99, 235, 0.06);
+        }
+
+        .cta-image-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e2a41;
+            margin-bottom: 12px;
+        }
+
+        .cta-image-content h2 span {
+            color: #d4a843;
+        }
+
+        .cta-image-content p {
+            color: #4b5a73;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .cta-image-img {
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 250px;
+        }
+
+        .cta-image-img img {
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+            object-fit: cover;
+        }
+
+        /* ==========================================
+           SECTION 12: PARTNERS
+           ========================================== */
+        .partners-section {
+            padding: 60px 24px 80px;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .partner-item {
+            background: white;
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid rgba(37, 99, 235, 0.04);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .partner-item:hover {
+            border-color: #d4a843;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -12px rgba(212, 168, 67, 0.06);
+        }
+
+        .partner-item .partner-logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .partner-item .partner-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .partner-item span {
+            font-weight: 600;
+            color: #1e2a41;
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 1024px) {
+            .zigzag-item { grid-template-columns: 1fr; gap: 30px; }
+            .zigzag-item.reverse { direction: ltr; }
+            .split-video-grid { grid-template-columns: 1fr; }
+            .stats-icons-grid { grid-template-columns: repeat(2, 1fr); }
+            .badge-cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .logo-row-grid { grid-template-columns: repeat(3, 1fr); }
+            .features-grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .cta-image-grid { grid-template-columns: 1fr; padding: 30px; }
+            .partners-grid { grid-template-columns: repeat(3, 1fr); }
+            .hero-fullscreen h1 { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-fullscreen h1 { font-size: 2.5rem; }
+            .hero-fullscreen p { font-size: 1rem; }
+            .stats-icons-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .badge-cards-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .logo-row-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid-4 { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .partner-item { padding: 16px 12px; min-height: 80px; }
+            .partner-item .partner-logo { width: 45px; height: 45px; }
+            .section-header h2 { font-size: 2rem; }
+            .zigzag-content h3 { font-size: 1.6rem; }
+            .split-video-content h2 { font-size: 2rem; }
+            .cta-image-content h2 { font-size: 2rem; }
+            .timeline-vertical .tl-item { flex-direction: column; gap: 12px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .hero-buttons .btn-primary, .hero-buttons .btn-secondary { width: 100%; justify-content: center; }
+            .stats-icon-item .number { font-size: 2rem; }
+            .pricing-card { padding: 28px 20px; }
+            .pricing-card .price { font-size: 2.8rem; }
+            .cta-image-img { min-height: 200px; }
+            .cta-image-img img { min-height: 200px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-fullscreen h1 { font-size: 2rem; }
+            .hero-fullscreen .hero-badge { font-size: 0.65rem; padding: 6px 16px; }
+            .stats-icons-grid { grid-template-columns: 1fr; }
+            .stats-icon-item { padding: 18px; }
+            .stats-icon-item .number { font-size: 1.8rem; }
+            .features-grid-4 { grid-template-columns: 1fr; }
+            .logo-row-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .logo-item { padding: 16px; min-height: 70px; }
+            .logo-item i { font-size: 2rem; }
+            .partners-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .partner-item { padding: 14px 10px; min-height: 70px; }
+            .partner-item .partner-logo { width: 40px; height: 40px; }
+            .partner-item span { font-size: 0.75rem; }
+            .section-header h2 { font-size: 1.6rem; }
+            .section-header p { font-size: 0.85rem; }
+            .zigzag-content h3 { font-size: 1.3rem; }
+            .split-video-content h2 { font-size: 1.6rem; }
+            .cta-image-content h2 { font-size: 1.6rem; }
+            .badge-card { padding: 24px; }
+            .testimonial-item { padding: 20px; }
+            .pricing-card .price { font-size: 2.2rem; }
+            .timeline-vertical .tl-number { width: 50px; height: 50px; font-size: 1.2rem; }
+            .cta-image-grid { padding: 20px; }
+            .feature-item { padding: 20px; }
+        }
+
+        @media (max-width: 380px) {
+            .hero-fullscreen h1 { font-size: 1.6rem; }
+            .section-header h2 { font-size: 1.3rem; }
+            .stats-icons-grid { grid-template-columns: 1fr; }
+            .logo-row-grid { grid-template-columns: 1fr 1fr; }
+            .partners-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f0f4f8; }
+        ::-webkit-scrollbar-thumb { background: #d4a843; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c49a3d; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER PLACEHOLDER ===== -->
+    <div id="header-placeholder"></div>
+
+    <!-- ==========================================
+    SECTION 1: FULLSCREEN HERO WITH VIDEO BG
+    ========================================== -->
+    <section class="hero-fullscreen" data-aos="fade-down" data-aos-duration="1000">
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-shield-halved"></i> 24/7 Security Monitoring</div>
+            <h1>Real-Time <span>Security Monitoring</span></h1>
+            <p>Continuous monitoring across your entire infrastructure with AI-powered threat detection and real-time alerting.</p>
+            <div class="hero-buttons">
+                <a href="404.html" class="btn-primary"><i class="fas fa-chart-bar"></i> View Dashboard</a>
+                <a href="404.html" class="btn-secondary"><i class="fas fa-play-circle"></i> Watch Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 2: ZIG-ZAG LAYOUT
+    ========================================== -->
+    <section class="zigzag-section" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-layer-group"></i> How It Works</div>
+            <h2>Monitoring <span>Process</span></h2>
+            <p>End-to-end security monitoring workflow</p>
+        </div>
+
+        <div class="zigzag-item" data-aos="fade-right">
+            <div class="zigzag-image">
+                <img src="cyb13.webp" alt="Detection">
+            </div>
+            <div class="zigzag-content">
+                <span class="feature-tag">Step 1</span>
+                <h3>Threat <span>Detection</span></h3>
+                <p>AI-powered detection identifies threats across your entire infrastructure with 99.9% accuracy.</p>
+                <a href="404.html" class="btn-sm">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="zigzag-item reverse" data-aos="fade-left">
+            <div class="zigzag-image">
+                <img src="cyb12.webp" alt="Alerting">
+            </div>
+            <div class="zigzag-content">
+                <span class="feature-tag">Step 2</span>
+                <h3>Real-Time <span>Alerting</span></h3>
+                <p>Instant notifications with contextual information for faster incident response and remediation.</p>
+                <a href="404.html" class="btn-sm">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="zigzag-item" data-aos="fade-right">
+            <div class="zigzag-image">
+                <img src="cyb11.webp" alt="Response">
+            </div>
+            <div class="zigzag-content">
+                <span class="feature-tag">Step 3</span>
+                <h3>Automated <span>Response</span></h3>
+                <p>Orchestrated response actions with playbooks and automated remediation workflows.</p>
+                <a href="404.html" class="btn-sm">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 3: STATS WITH ICONS
+    ========================================== -->
+    <section class="stats-icons-section" data-aos="fade-up">
+        <div class="stats-icons-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-chart-simple"></i> By The Numbers</div>
+                <h2>Monitoring <span>Statistics</span></h2>
+                <p>Key metrics from our monitoring platform</p>
+            </div>
+            <div class="stats-icons-grid">
+                <div class="stats-icon-item" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="icon-circle"><i class="fas fa-server"></i></div>
+                    <div class="number">12.8K</div>
+                    <div class="label">Systems Monitored</div>
+                </div>
+                <div class="stats-icon-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                    <div class="number">2.4min</div>
+                    <div class="label">Avg Response Time</div>
+                </div>
+                <div class="stats-icon-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-circle"><i class="fas fa-shield-virus"></i></div>
+                    <div class="number">99.9%</div>
+                    <div class="label">Detection Rate</div>
+                </div>
+                <div class="stats-icon-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-circle"><i class="fas fa-check-circle"></i></div>
+                    <div class="number">99.98%</div>
+                    <div class="label">Uptime SLA</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 4: CARDS WITH BADGES
+    ========================================== -->
+    <section class="badge-cards-section" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-cube"></i> Capabilities</div>
+            <h2>Monitoring <span>Features</span></h2>
+            <p>Comprehensive monitoring capabilities for your security needs</p>
+        </div>
+        <div class="badge-cards-grid">
+            <div class="badge-card" data-aos="flip-up" data-aos-delay="0">
+                <div class="card-badge">AI Powered</div>
+                <div class="card-icon"><i class="fas fa-robot"></i></div>
+                <h3>Intelligent Detection</h3>
+                <p>Machine learning models trained on 2M+ threat samples for accurate detection.</p>
+                <a href="404.html" class="btn-sm" style="margin-top:12px;">Learn More →</a>
+            </div>
+            <div class="badge-card" data-aos="flip-up" data-aos-delay="100">
+                <div class="card-badge">Real-Time</div>
+                <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Instant Alerting</h3>
+                <p>Real-time notifications with contextual information for faster response.</p>
+                <a href="404.html" class="btn-sm" style="margin-top:12px;">Learn More →</a>
+            </div>
+            <div class="badge-card" data-aos="flip-up" data-aos-delay="200">
+                <div class="card-badge">Automated</div>
+                <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Orchestrated Response</h3>
+                <p>Automated workflows with playbooks for consistent and rapid remediation.</p>
+                <a href="404.html" class="btn-sm" style="margin-top:12px;">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 5: SPLIT WITH VIDEO
+    ========================================== -->
+    <section class="split-video-section" data-aos="fade-up">
+        <div class="split-video-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-video"></i> Watch Demo</div>
+                <h2>See Monitoring <span>In Action</span></h2>
+                <p>Watch how our platform detects and responds to threats in real-time</p>
+            </div>
+            <div class="split-video-grid">
+                <div class="split-video-content" data-aos="fade-right">
+                    <h2>Real-Time <span>Threat</span> Response</h2>
+                    <p>Our AI-powered platform continuously monitors your infrastructure and responds to threats automatically.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle"></i> Live threat visualization</li>
+                        <li><i class="fas fa-check-circle"></i> AI-powered anomaly detection</li>
+                        <li><i class="fas fa-check-circle"></i> Automated incident response</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 SOC support</li>
+                    </ul>
+                    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+                        <a href="404.html" class="btn-primary"><i class="fas fa-rocket"></i> Start Free Trial</a>
+                        <a href="404.html" class="btn-outline"><i class="fas fa-file-alt"></i> Documentation</a>
+                    </div>
+                </div>
+                <div class="split-video-wrapper" data-aos="fade-left">
+                    <iframe src="cybv3.mp4" title="Monitoring Demo" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 6: TESTIMONIALS
+    ========================================== -->
+    <section class="testimonials-section" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-quote-right"></i> Testimonials</div>
+            <h2>What Our <span>Clients</span> Say</h2>
+            <p>Trusted by leading organizations worldwide</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-item" data-aos="fade-up" data-aos-delay="0">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="quote">"Stackly's monitoring platform has revolutionized our security operations. We've reduced response time by 60%."</div>
+                <div class="author">
+                    <div class="avatar"><img src="cyb10.webp" alt="John"></div>
+                    <div class="info">
+                        <div class="name">John Anderson</div>
+                        <div class="role">CTO, TechCorp</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="quote">"The AI-powered detection and automated response capabilities are game-changing for our security team."</div>
+                <div class="author">
+                    <div class="avatar"><img src="cyb9.webp" alt="Sarah"></div>
+                    <div class="info">
+                        <div class="name">Sarah Mitchell</div>
+                        <div class="role">CISO, HealthSecure</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="quote">"The platform's ability to detect and respond to threats in real-time has exceeded our expectations."</div>
+                <div class="author">
+                    <div class="avatar"><img src="cyb8.webp" alt="Michael"></div>
+                    <div class="info">
+                        <div class="name">Michael Chen</div>
+                        <div class="role">VP Security, FinBank</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 7: TIMELINE VERTICAL
+    ========================================== -->
+    <section class="timeline-vertical" data-aos="fade-up">
+        <div class="timeline-vertical-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-clock"></i> Timeline</div>
+                <h2>Recent <span>Activity</span></h2>
+                <p>Latest security events from our monitoring platform</p>
+            </div>
+
+            <div class="tl-item" data-aos="fade-right" data-aos-delay="0">
+                <div class="tl-number">01</div>
+                <div class="tl-content">
+                    <div class="tl-date">March 15, 2024 - 14:23</div>
+                    <h4>Ransomware Attempt Blocked</h4>
+                    <p>LockBit 3.0 ransomware attempt detected and blocked on 3 endpoints automatically.</p>
+                    <a href="404.html" class="btn-sm" style="display:inline-block; margin-top:6px;">View Details →</a>
+                </div>
+            </div>
+
+            <div class="tl-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="tl-number">02</div>
+                <div class="tl-content">
+                    <div class="tl-date">March 15, 2024 - 12:45</div>
+                    <h4>Phishing Campaign Detected</h4>
+                    <p>AI-powered detection identified phishing campaign targeting 2,500+ users globally.</p>
+                    <a href="404.html" class="btn-sm" style="display:inline-block; margin-top:6px;">View Details →</a>
+                </div>
+            </div>
+
+            <div class="tl-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="tl-number">03</div>
+                <div class="tl-content">
+                    <div class="tl-date">March 14, 2024 - 10:30</div>
+                    <h4>Vulnerability Scan Completed</h4>
+                    <p>Automated vulnerability scan completed - 12 vulnerabilities found, 8 patched immediately.</p>
+                    <a href="404.html" class="btn-sm" style="display:inline-block; margin-top:6px;">View Details →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 8: PRICING
+    ========================================== -->
+    <section class="pricing-section" data-aos="fade-up">
+        <div class="pricing-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-tag"></i> Pricing</div>
+                <h2>Choose Your <span>Plan</span></h2>
+                <p>Flexible pricing options for organizations of all sizes</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card" data-aos="flip-left" data-aos-delay="0">
+                    <div class="plan-name">Starter</div>
+                    <div class="price">$99<span>/mo</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 5,000 systems monitored</li>
+                        <li><i class="fas fa-check"></i> Basic threat detection</li>
+                        <li><i class="fas fa-check"></i> Email alerts</li>
+                        <li><i class="fas fa-check"></i> 30-day data retention</li>
+                    </ul>
+                    <a href="404.html" class="btn-outline" style="width:100%; justify-content:center;">Get Started</a>
+                </div>
+                <div class="pricing-card popular" data-aos="flip-left" data-aos-delay="100">
+                    <div class="popular-badge">Popular</div>
+                    <div class="plan-name">Professional</div>
+                    <div class="price">$249<span>/mo</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 25,000 systems monitored</li>
+                        <li><i class="fas fa-check"></i> AI-powered detection</li>
+                        <li><i class="fas fa-check"></i> Real-time alerts &amp; SMS</li>
+                        <li><i class="fas fa-check"></i> 90-day data retention</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                    </ul>
+                    <a href="404.html" class="btn-primary" style="width:100%; justify-content:center;">Start Free Trial</a>
+                </div>
+                <div class="pricing-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="price">Custom</div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Unlimited systems</li>
+                        <li><i class="fas fa-check"></i> Custom detection models</li>
+                        <li><i class="fas fa-check"></i> Dedicated SOC support</li>
+                        <li><i class="fas fa-check"></i> Unlimited data retention</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                    </ul>
+                    <a href="404.html" class="btn-outline" style="width:100%; justify-content:center;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 9: LOGO ROW
+    ========================================== -->
+    <section class="logo-row-section" data-aos="fade-up">
+        <div class="logo-row-container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-plug"></i> Integrations</div>
+                <h2>Seamless <span>Integrations</span></h2>
+                <p>Connect with 100+ security tools and platforms</p>
+            </div>
+            <div class="logo-row-grid">
+                <div class="logo-item" data-aos="zoom-in" data-aos-delay="0">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS</span>
+                </div>
+                <div class="logo-item" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-microsoft"></i>
+                    <span>Azure</span>
+                </div>
+                <div class="logo-item" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fab fa-google"></i>
+                    <span>GCP</span>
+                </div>
+                <div class="logo-item" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fab fa-salesforce"></i>
+                    <span>Salesforce</span>
+                </div>
+                <div class="logo-item" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-database"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="logo-item" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fas fa-code"></i>
+                    <span>API Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 10: FEATURES GRID
+    ========================================== -->
+    <section class="features-grid-section" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-th-large"></i> Features</div>
+            <h2>Why Choose <span>Stackly</span></h2>
+            <p>Enterprise-grade features for comprehensive security monitoring</p>
+        </div>
+        <div class="features-grid-4">
+            <div class="feature-item" data-aos="flip-left" data-aos-delay="0">
+                <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
+                <h4>AI Threat Detection</h4>
+                <p>Machine learning models trained on 2M+ threat samples</p>
+            </div>
+            <div class="feature-item" data-aos="flip-left" data-aos-delay="100">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h4>Real-Time Monitoring</h4>
+                <p>Continuous monitoring with sub-second response time</p>
+            </div>
+            <div class="feature-item" data-aos="flip-left" data-aos-delay="200">
+                <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                <h4>Automated Response</h4>
+                <p>Orchestrated workflows with playbook automation</p>
+            </div>
+            <div class="feature-item" data-aos="flip-left" data-aos-delay="300">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h4>Analytics & Reporting</h4>
+                <p>Customizable dashboards and executive reports</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 11: CTA WITH IMAGE
+    ========================================== -->
+    <section class="cta-image-section" data-aos="fade-up">
+        <div class="cta-image-container">
+            <div class="cta-image-grid">
+                <div class="cta-image-content" data-aos="fade-right">
+                    <h2>Ready to Start <span>Monitoring</span>?</h2>
+                    <p>Get started with comprehensive security monitoring for your organization today.</p>
+                    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                        <a href="404.html" class="btn-primary"><i class="fas fa-rocket"></i> Start Free Trial</a>
+                        <a href="404.html" class="btn-outline"><i class="fas fa-phone"></i> Contact Sales</a>
+                    </div>
+                </div>
+                <div class="cta-image-img" data-aos="fade-left">
+                    <img src="cyb7.webp" alt="Get Started">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    SECTION 12: PARTNERS
+    ========================================== -->
+    <section class="partners-section" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-handshake"></i> Trusted By</div>
+            <h2>Trusted by <span>Industry</span> Leaders</h2>
+            <p>Leading organizations rely on Stackly for their security monitoring needs</p>
+        </div>
+        <div class="partners-grid">
+            <div class="partner-item" data-aos="zoom-in" data-aos-delay="0">
+                <div class="partner-logo">
+                    <img src="cyb6.webp" alt="TechCorp">
+                </div>
+                <span>TechCorp</span>
+            </div>
+            <div class="partner-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="partner-logo">
+                    <img src="cyb5.webp" alt="HealthSecure">
+                </div>
+                <span>HealthSecure</span>
+            </div>
+            <div class="partner-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="partner-logo">
+                    <img src="cyb4.webp" alt="FinBank">
+                </div>
+                <span>FinBank</span>
+            </div>
+            <div class="partner-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="partner-logo">
+                    <img src="cyb3.webp" alt="CloudNexus">
+                </div>
+                <span>CloudNexus</span>
+            </div>
+            <div class="partner-item" data-aos="zoom-in" data-aos-delay="400">
+                <div class="partner-logo">
+                    <img src="cyb2.webp" alt="RetailTech">
+                </div>
+                <span>RetailTech</span>
+            </div>
+            <div class="partner-item" data-aos="zoom-in" data-aos-delay="500">
+                <div class="partner-logo">
+                    <img src="cyb1.webp" alt="DevSecOps">
+                </div>
+                <span>DevSecOps</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER PLACEHOLDER ===== -->
+    <div id="footer-placeholder"></div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('header.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    initHeader();
+                })
+                .catch(error => {
+                    console.error('Error loading header:', error);
+                    document.getElementById('header-placeholder').innerHTML = '<div style="background:#2563eb; color:white; padding:10px; text-align:center;">Header failed to load</div>';
+                });
+
+            fetch('footer.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    initFooter();
+                })
+                .catch(error => {
+                    console.error('Error loading footer:', error);
+                    document.getElementById('footer-placeholder').innerHTML = '<div style="background:#1e2a41; color:#a0aec0; padding:20px; text-align:center;">Footer failed to load</div>';
+                });
+
+            AOS.init({
+                once: false,
+                mirror: true,
+                duration: 800,
+                offset: 30,
+                easing: 'ease-out-cubic'
+            });
+
+            console.log('%c🛡️ Stackly Cybersecurity | Security Monitoring', 'color: #2563eb; font-size: 16px; font-weight: bold;');
+        });
+
+        function initHeader() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (hamburgerBtn && mobileMenu) {
+                hamburgerBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const page = this.getAttribute('data-page');
+                    if (page) window.location.href = page + '.html';
+                });
+            });
+
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const page = this.getAttribute('data-page');
+                    if (page) window.location.href = page + '.html';
+                    if (hamburgerBtn && mobileMenu) {
+                        hamburgerBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            const loginBtn = document.getElementById('loginBtn');
+            if (loginBtn) loginBtn.addEventListener('click', (e) => { e.preventDefault();
+                window.location.href = 'login.html'; });
+
+            const getStartedBtn = document.getElementById('getStartedBtn');
+            if (getStartedBtn) getStartedBtn.addEventListener('click', (e) => { e.preventDefault();
+                window.location.href = 'signup.html'; });
+
+            const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+            if (mobileLoginBtn) {
+                const newBtn = mobileLoginBtn.cloneNode(true);
+                mobileLoginBtn.parentNode.replaceChild(newBtn, mobileLoginBtn);
+                newBtn.addEventListener('click', (e) => { e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = 'login.html'; });
+            }
+
+            const mobileGetStartedBtn = document.getElementById('mobileGetStartedBtn');
+            if (mobileGetStartedBtn) {
+                const newBtn = mobileGetStartedBtn.cloneNode(true);
+                mobileGetStartedBtn.parentNode.replaceChild(newBtn, mobileGetStartedBtn);
+                newBtn.addEventListener('click', (e) => { e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = 'signup.html'; });
+            }
+
+            const logoSection = document.querySelector('.logo-section');
+            if (logoSection) logoSection.addEventListener('click', (e) => { e.preventDefault();
+                window.location.href = 'index.html'; });
+        }
+
+        function initFooter() {
+            const subscribeBtn = document.getElementById('footerSubscribeBtn');
+            const emailInput = document.getElementById('footerEmail');
+            const emailError = document.getElementById('footerEmailError');
+
+            function validateEmail(email) {
+                return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email);
+            }
+
+            if (subscribeBtn) {
+                subscribeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+                    if (!email) {
+                        emailError.classList.add('show');
+                        emailError.textContent = 'Please enter your email address';
+                        emailInput.classList.add('error');
+                    } else if (!validateEmail(email)) {
+                        emailError.classList.add('show');
+                        emailError.textContent = 'Please enter a valid email address';
+                        emailInput.classList.add('error');
+                    } else {
+                        emailError.classList.remove('show');
+                        emailInput.classList.remove('error');
+                        window.location.href = '404.html';
+                    }
+                });
+            }
+
+            if (emailInput) {
+                emailInput.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        emailError.classList.remove('show');
+                        this.classList.remove('error');
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const hamburgerBtn = document.getElementById('hamburgerBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (hamburgerBtn && mobileMenu) {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

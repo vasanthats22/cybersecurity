@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Cybersecurity - Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1e2a41;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================
+           FOOTER - LIGHT CYBER (BLUE + GOLD)
+           Same as header color combination
+           ============================================ */
+        .footer {
+            background: #ffffff;
+            color: #1e2a41;
+            width: 100%;
+            margin-top: auto;
+            border-top: 3px solid #d4a843;  /* gold accent */
+            box-shadow: 0 -2px 20px rgba(0, 20, 40, 0.04);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 32px 30px;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            text-decoration: none;
+        }
+
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+            transition: opacity 0.3s;
+        }
+
+        .footer-logo img:hover {
+            opacity: 0.85;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: #4b5a73;
+            line-height: 1.7;
+            max-width: 350px;
+            margin-top: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #f0f4f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;  /* blue */
+            text-decoration: none !important;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .social-links a:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+            border-color: #2563eb;
+        }
+
+        .footer-col h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e2a41;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #d4a843;  /* gold */
+            display: inline-block;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .footer-col ul li a {
+            color: #4b5a73;
+            text-decoration: none !important;
+            border-bottom: none !important;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-col ul li a i {
+            font-size: 0.6rem;
+            color: #d4a843;  /* gold */
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #d4a843;  /* gold on hover */
+            transform: translateX(5px);
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 0.9rem;
+            color: #4b5a73;
+            line-height: 1.6;
+            list-style: none;
+        }
+
+        .contact-info li i {
+            color: #2563eb;  /* blue */
+            font-size: 1rem;
+            margin-top: 3px;
+            width: 18px;
+        }
+
+        .contact-info li a {
+            color: #4b5a73;
+            text-decoration: none !important;
+            border-bottom: none !important;
+            transition: 0.3s;
+        }
+
+        .contact-info li a:hover {
+            color: #d4a843;  /* gold on hover */
+        }
+
+        .newsletter {
+            margin-top: 12px;
+            width: 100%;
+        }
+
+        .newsletter h4 {
+            font-size: 0.85rem;
+            color: #1e2a41;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            background: #f8fafc;
+            color: #1e2a41;
+            outline: none;
+            min-width: 180px;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9aa7b9;
+        }
+
+        .newsletter-input:focus {
+            background: white;
+            border-color: #2563eb;  /* blue on focus */
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+        }
+
+        .newsletter-input.error {
+            border-color: #ff6b6b;
+        }
+
+        .newsletter-btn {
+            background: #d4a843;  /* gold primary */
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            box-shadow: 0 4px 20px rgba(212, 168, 67, 0.25);
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 168, 67, 0.35);
+            background: #c49a3d;
+        }
+
+        .newsletter-error {
+            font-size: 0.7rem;
+            color: #ff6b6b;
+            margin-top: 8px;
+            display: none;
+            text-align: left;
+        }
+
+        .newsletter-error.show {
+            display: block;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #4b5a73;
+        }
+
+        .copyright i {
+            color: #d4a843;  /* gold */
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-links a {
+            color: #4b5a73;
+            text-decoration: none !important;
+            border-bottom: none !important;
+            font-size: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #d4a843;  /* gold on hover */
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                padding: 40px 20px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: left;
+            }
+
+            .footer-brand {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+                text-align: left;
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+
+            .footer-col h3 {
+                display: inline-block;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .newsletter-input {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
+
+            .footer-logo img {
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-container {
+                padding: 30px 16px 20px;
+            }
+
+            .footer-grid {
+                gap: 25px;
+            }
+
+            .footer-brand p {
+                font-size: 0.85rem;
+            }
+
+            .footer-col h3 {
+                font-size: 0.95rem;
+            }
+
+            .footer-col ul li a {
+                font-size: 0.85rem;
+            }
+
+            .contact-info li {
+                font-size: 0.85rem;
+            }
+
+            .copyright {
+                font-size: 0.7rem;
+            }
+
+            .footer-bottom-links a {
+                font-size: 0.7rem;
+            }
+
+            .footer-bottom-links {
+                gap: 16px;
+            }
+
+            .footer-logo img {
+                height: 100px;
+            }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f0f4f8; }
+        ::-webkit-scrollbar-thumb { background: #d4a843; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c49a3d; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="Stackly.webp" alt="Stackly" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%2290%22 viewBox=%220 0 200 90%22%3E%3Crect width=%22200%22 height=%2290%22 fill=%22%23ffffff%22 rx=%2212%22 stroke=%22%232563eb%22 stroke-width=%221.5%22/%3E%3Ctext x=%2220%22 y=%2254%22 font-family=%22Inter, sans-serif%22 font-size=%2226%22 font-weight=%22800%22 fill=%22%232563eb%22%3E🔐 Stackly%3C/text%3E%3C/svg%3E'">
+                    </a>
+                    <p>Your trusted partner in cybersecurity solutions. We deliver zero‑trust defense, AI‑driven threat detection, and enterprise‑grade security with reliability and speed.</p>
+                    <div class="social-links">
+                        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="home.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="fleet.html"><i class="fas fa-chevron-right"></i> Monitoring</a></li>
+                        <li><a href="tracking.html"><i class="fas fa-chevron-right"></i> Threat Intel</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="404.html"><i class="fas fa-chevron-right"></i> Zero‑Trust Security</a></li>
+                        <li><a href="404.html"><i class="fas fa-chevron-right"></i> Threat Detection</a></li>
+                        <li><a href="404.html"><i class="fas fa-chevron-right"></i> Cloud Security</a></li>
+                        <li><a href="404.html"><i class="fas fa-chevron-right"></i> IAM Solutions</a></li>
+                        <li><a href="404.html"><i class="fas fa-chevron-right"></i> Compliance Audits</a></li>
+                        <li><a href="404.html"><i class="fas fa-chevron-right"></i> 24/7 SOC</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Newsletter -->
+                <div class="footer-col">
+                    <h3>Get In Touch</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> <span>Koppa Rd, SNN Raj Serenity,<br>Bengaluru - 560068</span></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+917010792745">+91 70107 92745</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@stackly.com">info@stackly.com</a></li>
+                        <li><i class="fas fa-clock"></i> Mon - Fri: 9:30 AM - 6:30 PM</li>
+                    </ul>
+
+                    <div class="newsletter">
+                        <h4>Subscribe for Updates</h4>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" class="newsletter-input" id="footerEmail">
+                            <button class="newsletter-btn" id="footerSubscribeBtn">Subscribe</button>
+                        </div>
+                        <div id="footerEmailError" class="newsletter-error">Please enter a valid email address</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2026 Stackly Cybersecurity. All rights reserved. | Secured with <i class="fas fa-heart"></i> for digital safety
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Cookie Policy</a>
+                    <a href="404.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPT ===== -->
+    <script>
+        // ===== Newsletter Subscription =====
+        const subscribeBtn = document.getElementById('footerSubscribeBtn');
+        const emailInput = document.getElementById('footerEmail');
+        const emailError = document.getElementById('footerEmailError');
+
+        function validateEmail(email) {
+            return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email);
+        }
+
+        if (subscribeBtn) {
+            subscribeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const email = emailInput.value.trim();
+
+                if (!email) {
+                    emailError.classList.add('show');
+                    emailError.textContent = 'Please enter your email address';
+                    emailInput.classList.add('error');
+                } else if (!validateEmail(email)) {
+                    emailError.classList.add('show');
+                    emailError.textContent = 'Please enter a valid email address (e.g., name@domain.com)';
+                    emailInput.classList.add('error');
+                } else {
+                    emailError.classList.remove('show');
+                    emailInput.classList.remove('error');
+                    window.location.href = '404.html';
+                }
+            });
+        }
+
+        if (emailInput) {
+            emailInput.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    emailError.classList.remove('show');
+                    this.classList.remove('error');
+                }
+            });
+        }
+
+        console.log('🛡️ Cybersecurity Footer Loaded');
+        console.log('📍 White + Blue + Gold Theme (matching header)');
+    </script>
+
+</body>
+</html>
